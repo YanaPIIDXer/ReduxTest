@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
+import { addTodo } from './actions/todo';
 
 class App extends Component {
   constructor() {
@@ -16,7 +17,9 @@ class App extends Component {
       alert("TODOを入力してください。");
       return;
     }
-    alert(text);
+    
+    this.props.dispatch(addTodo(text));
+    this.elements["todo"].value = "";
   }
 
   render() {
@@ -39,8 +42,8 @@ class App extends Component {
                 {todoes.map((todo, index) => {
                   return (
                     <tr>
-                      <td>index</td>
-                      <td>todo.text</td>
+                      <td>{index}</td>
+                      <td>{todo.text}</td>
                       <td><input type="checkbox" /> </td>
                     </tr>
                   );
