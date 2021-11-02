@@ -20,7 +20,7 @@ class Messages extends Component {
                         
                         default: break;
                     }
-                    return <span class={classes} onClick={dispatch(removeMessage(index))}>{msg.text}</span>
+                    return <div class={classes} onClick={dispatch(removeMessage(index))}>{msg.text}</div>
                 })}
             </div>
         );
