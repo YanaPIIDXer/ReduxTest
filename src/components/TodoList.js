@@ -28,7 +28,7 @@ class TodoList extends Component {
                       <td>{index}</td>
                       <td>{todo.text}</td>
                       <td>
-                        <input type="checkbox" onChange={(event) => this.onUpdateDone(event, index)} />
+                        <input type="checkbox" onChange={(event) => this.onUpdateDone(event, index)} defaultChecked={todo.done} />
                       </td>
                     </tr>
                   );
