@@ -18,8 +18,12 @@ const messages = (state = initialState, action) => {
             });
 
         case "REMOVE_MESSAGE":
-            state.messages = state.messages.splice(action.index, 1);
-            return state;
+            return Object.assign([], state, {
+                messages: [
+                    ...state.messages.slice(0, action.index),
+                    ...state.messages.slice(action.index + 1)
+                ]
+            });
 
         default:
             // ここでreturn stateしてもいいと思うけど、
