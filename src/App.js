@@ -1,6 +1,7 @@
 import { Component } from 'react';
+import { connect } from 'react-redux';
 
-export class App extends Component {
+class App extends Component {
   render() {
     return (
       <div class="container">
@@ -11,3 +12,12 @@ export class App extends Component {
     );
   }
 };
+
+// Storeの保持するTODOリストを返す関数
+const list = (state) => {
+  return { todoes: state.todoes };
+}
+
+// connect関数でComponentをラップすることで、
+// propにdispatch関数とstateが渡されるようになる
+export default connect(list)(App);
