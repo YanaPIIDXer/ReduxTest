@@ -1,12 +1,15 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import { addTodo } from './actions/todo';
+import { addTodo, setDone } from './actions/todo';
 
 class App extends Component {
   constructor() {
     super();
     this.elements = null;
-    this.onSubmitTodo = this.onSubmitTodo.bind(this);   // メソッド内でthisを使えるようにするためのおまじない
+    
+    // メソッド内でthisを使えるようにするためのおまじない
+    this.onSubmitTodo = this.onSubmitTodo.bind(this);
+    this.onUpdateDone = this.onUpdateDone.bind(this);
   }
   
   onSubmitTodo(event) {
@@ -22,6 +25,11 @@ class App extends Component {
     this.elements["todo"].value = "";
   }
 
+  onUpdateDone(event, index) {
+    const done = event.target.checked;
+    this.props.dispatch(setDone(index, done));
+  }
+
   render() {
     const { todoes } = this.props;
     return (
@@ -29,7 +37,7 @@ class App extends Component {
         <div class="text-center">
           <h1 class="mt-3">Redux Test</h1>
           <hr />
-          <form onSubmit={this.onSubmitTodo} ref={elem => this.elements = elem && elem.elements}>
+          <form onSubmit={this.onSubmitTodo} ref={elem => this.elements = elem}>
             <input type="text" name="todo" placeholder="TODOを入力" /><br />
             <input type="submit" value="追加" />
           </form>
@@ -44,7 +52,9 @@ class App extends Component {
                     <tr>
                       <td>{index}</td>
                       <td>{todo.text}</td>
-                      <td><input type="checkbox" /> </td>
+                      <td>
+                        <input type="checkbox" onChange={(event) => this.onUpdateDone(event, index)} />
+                      </td>
                     </tr>
                   );
                 })}

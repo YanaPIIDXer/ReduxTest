@@ -4,3 +4,11 @@ export const addTodo = (text) => {
         text
     };
 }
+
+export const setDone = (index, done) => {
+    return {
+        type: "SET_DONE",
+        index,
+        done
+    }
+}

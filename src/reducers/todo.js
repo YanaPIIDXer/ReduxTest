@@ -16,6 +16,10 @@ const todo = (state = initialState, action) => {
                 ]
             });
 
+        case "SET_DONE":
+            state.todoes[action.index].done = action.done;
+            return state;
+
         default:
             // ここでreturn stateしてもいいと思うけど、
             // 個人的には戻り値を返す関数の最終行がreturn文じゃないのは気持ちが悪いので
