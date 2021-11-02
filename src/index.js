@@ -7,16 +7,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { createStore } from 'redux';
 import todo from './reducers/todo';
 import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 
 let store = createStore(todo);
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </React.StrictMode>,
-  document.getElementById('root')
+  <BrowserRouter>
+    <React.StrictMode>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </React.StrictMode>
+  </BrowserRouter>
+  , document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
