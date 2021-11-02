@@ -27,6 +27,6 @@ class Messages extends Component {
     }
 }
 const list = (state) => {
-    return { messages: state.messages };
+    return { messages: state.messages.messages };
   }
 export default connect(list)(Messages);

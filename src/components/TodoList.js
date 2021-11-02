@@ -41,7 +41,7 @@ class TodoList extends Component {
 
 // Storeの保持するTODOリストを返す関数
 const list = (state) => {
-    return { todoes: state.todoes };
+    return { todoes: state.todo.todoes };
   }
   
   // connect関数でComponentをラップすることで、

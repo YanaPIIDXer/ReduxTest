@@ -2,7 +2,7 @@ const initialState = {
     messages: []
 }
 
-const todo = (state = initialState, action) => {
+const messages = (state = initialState, action) => {
     switch (action.type) {
         case "ADD_MESSAGE":
         case "ADD_ERROR":
@@ -29,4 +29,4 @@ const todo = (state = initialState, action) => {
     return state;
 };
 
-export default todo;
+export default messages;

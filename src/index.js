@@ -5,12 +5,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { createStore } from 'redux';
-import todo from './reducers/todo';
-import messages from './reducers/messages';
+import reducer from './reducers/index';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 
-let store = createStore({todo, messages});
+let store = createStore(reducer);
 
 ReactDOM.render(
   <BrowserRouter>
