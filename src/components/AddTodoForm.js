@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import { addTodo } from '../actions/todo';
+import { addMessage, addError } from '../actions/messages';
 
 class AddTodoForm extends Component {
     constructor() {
@@ -15,12 +16,13 @@ class AddTodoForm extends Component {
 
         const text = this.elements["todo"].value;
         if (text === "") {
-        alert("TODOを入力してください。");
+        this.props.dispatch(addError("TODOを入力してください。"));
         return;
         }
         
         this.props.dispatch(addTodo(text));
         this.elements["todo"].value = "";
+        this.props.dispatch(addMessage("TODOを追加しました。"));
     }
 
     render() {

@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import { setDone } from '../actions/todo';
+import { addMessage } from '../actions/messages';
 
 class TodoList extends Component {
     constructor() {
@@ -12,6 +13,7 @@ class TodoList extends Component {
     onUpdateDone(event, index) {
         const done = event.target.checked;
         this.props.dispatch(setDone(index, done));
+        this.props.dispatch(addMessage("状態を更新しました。"));
     }
     
     render() {
