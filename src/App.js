@@ -2,6 +2,7 @@ import { Component } from 'react';
 import AddTodoForm from './components/AddTodoForm';
 import { Route, Switch, withRouter, Link } from 'react-router-dom';
 import TodoList from './components/TodoList';
+import Messages from './components/Messages';
 
 class App extends Component {
   render() {
@@ -10,6 +11,7 @@ class App extends Component {
         <div class="text-center">
           <h1 class="mt-3">Redux Test</h1>
           <hr />
+          <Messages />
           <div class="row">
             <div class="col-6"><Link to="/">TODOリスト</Link></div>
             <div class="col-6"><Link to="/add">追加フォーム</Link></div>
