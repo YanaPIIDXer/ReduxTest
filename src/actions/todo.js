@@ -1,6 +1,6 @@
 export const addTodo = (text) => {
     return {
-        tyoe: "ADD_TODO",
+        type: "ADD_TODO",
         text
     };
 }
